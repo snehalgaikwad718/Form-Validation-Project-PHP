@@ -1,3 +1,45 @@
+<?php 
+
+$NameError = "";
+$EmailError = "";
+$GenderError = "";
+$WebsiteError = "";
+
+if(isset($_POST["Submit"])) {
+
+    if(empty($_POST["Name"])) {
+        $NameError = "Name is Required";
+    } else {
+        $Name = Test_User_Input($_POST["Name"]);
+    }
+
+    if(empty($_POST["Email"])) {
+        $EmailError = "Email is Required";
+    } else {
+        $Email = Test_User_Input($_POST["Email"]);
+    }
+
+    if(empty($_POST["Gender"])) {
+        $GenderError = "Gender is Required";
+    } else {
+        $Gender = Test_User_Input($_POST["Gender"]);
+    }
+
+    if(empty($_POST["Website"])) {
+        $WebsiteError = "Website URL is Required";
+    } else {
+        $Website = Test_User_Input($_POST["Website"]);
+    }
+
+}
+
+function Test_User_Input($Data) {
+    return $Data;
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,22 +52,22 @@
 
     <h2>Form Validation with PHP.</h2>
 
-    <form  action="FormValidationProject.php" method="post"> 
+    <form  action="formvalidation.php" method="POST"> 
     <legend>* Please Fill Out the following Fields.</legend>			
     <fieldset>
     Name:<br>
     <input class="input" type="text" Name="Name" value="">
-    *<br><br>	 
+    * <?php echo $NameError?><br><br>	 
     E-mail:<br>
     <input class="input" type="text" Name="Email" value="">
-    *<br><br>
+    * <?php echo $EmailError?><br><br>
     Gender:<br>
     <input class="radio" type="radio" Name="Gender" value="Female">Female
     <input class="radio" type="radio" Name="Gender" value="Male">Male
-    *<br><br>		   
+    * <?php echo $GenderError?><br><br>		   
     Website:<br>
     <input class="input" type="text" Name="Website" value="">
-    *<br><br>
+    * <?php echo $WebsiteError?><br><br>
     Comment:<br>
     <textarea Name="Comment" rows="5" cols="25"></textarea>
     <br>
