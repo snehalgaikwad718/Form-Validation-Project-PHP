@@ -8,27 +8,39 @@ $WebsiteError = "";
 if(isset($_POST["Submit"])) {
 
     if(empty($_POST["Name"])) {
-        $NameError = "Name is Required";
+        $NameError = "Name is Required.";
     } else {
         $Name = Test_User_Input($_POST["Name"]);
+
+        if(!preg_match("/^[A-Za-z. ]*$/", $Name)) {
+            $NameError = "Only Letters and Space are allowed.";
+        }
     }
 
     if(empty($_POST["Email"])) {
-        $EmailError = "Email is Required";
+        $EmailError = "Email is Required.";
     } else {
         $Email = Test_User_Input($_POST["Email"]);
+
+        if(!preg_match("/[A-Za-z0-9._-]{3,}@[A-Za-z0-9._-]{3,}[.]{1}[A-Za-z0-9._-]{2,}/", $Email)) {
+            $EmailError = "Please enter valid email address.";
+        }
     }
 
     if(empty($_POST["Gender"])) {
-        $GenderError = "Gender is Required";
+        $GenderError = "Gender is Required.";
     } else {
         $Gender = Test_User_Input($_POST["Gender"]);
     }
 
     if(empty($_POST["Website"])) {
-        $WebsiteError = "Website URL is Required";
+        $WebsiteError = "Website URL is Required.";
     } else {
         $Website = Test_User_Input($_POST["Website"]);
+
+        if(!preg_match("/(https:[\/\/]|ftp:[\/\/]|http:[\/\/]|www)+[A-Za-z0-9.-_\/\$\%\#?\~\&`!]+\.[A-Za-z0-9.-_\/\$\%\#?\~\&`!]*/", $Website)) {
+            $WebsiteError = "Please enter valid website URL.";
+        }
     }
 
 }
