@@ -43,6 +43,23 @@ if(isset($_POST["Submit"])) {
         }
     }
 
+    if(!empty($_POST["Name"]) && !empty($_POST["Email"]) && !empty($_POST["Gender"]) && !empty($_POST["Website"])) {
+        if(preg_match("/^[A-Za-z. ]*$/", $Name) && preg_match("/[A-Za-z0-9._-]{3,}@[A-Za-z0-9._-]{3,}[.]{1}[A-Za-z0-9._-]{2,}/", $Email) && preg_match("/(https:[\/\/]|ftp:[\/\/]|http:[\/\/]|www)+[A-Za-z0-9.-_\/\$\%\#?\~\&`!]+\.[A-Za-z0-9.-_\/\$\%\#?\~\&`!]*/", $Website)) {
+            echo "<h2>Your Submit Information</h2>";
+            echo "Name: ".ucwords($_POST["Name"]). "<br />";
+            echo "Email: {$_POST["Email"]} <br />";
+            echo "Gender: {$_POST["Gender"]} <br />";
+            echo "Website: {$_POST["Website"]} <br />";
+            if(empty($_POST["Comment"])) {
+                echo "Comment: No Comment. <br />";
+            } else {
+                echo "Comment: {$_POST["Comment"]} <br />";
+            }
+        } else {
+            echo "<h4>Please complete and correct your form again.</h4>";
+        }
+    }
+
 }
 
 function Test_User_Input($Data) {
