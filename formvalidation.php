@@ -85,9 +85,9 @@ function Test_User_Input($Data) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="formvalidationcss.scss">
+    <meta name="robots" content="max-image-preview:large">
+    <link rel="stylesheet" href="formcss.scss">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -101,35 +101,39 @@ function Test_User_Input($Data) {
     <h2>Form Validation with PHP.</h2>
 
     <form  action="formvalidation.php" method="POST"> 
-    <legend>* Please Fill Out the following Fields.</legend>	
-    
-            <fieldset>
+    <legend>* Please Fill Out the following Fields.</legend>
+    <fieldset>	
+    <div class="row">
+    <div class="column">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.0435903191346!2d73.77186621469617!3d19.964668986584364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddeb3783d3d579%3A0x905ac1e409ab3875!2sIcchapoorti%20Garden!5e0!3m2!1sen!2sin!4v1628136519580!5m2!1sen!2sin" width="400" height="670" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div><br>
+        <div class="column1">
                 <strong>Name:</strong><br>
                 <input class="input" type="text" Name="Name" value="" placeholder="Your name..">
-                <span>* <?php echo $NameError?></span><br><br>	 
+                <span>* <br><?php echo $NameError?></span><br><br>	 
 
                 <strong>E-mail:</strong><br>
                 <input class="input" type="email" Name="Email" value="" placeholder="Your email...">
-                <span>* <?php echo $EmailError?></span><br><br>
+                <span>* <br><?php echo $EmailError?></span><br><br>
 
                 <strong>Gender:</strong><br>
                 <input class="radio" type="radio" Name="Gender" value="Female">Female
                 <input class="radio" type="radio" Name="Gender" value="Male">Male
-                <span>* <?php echo $GenderError?></span><br><br>
+                <span>* <br><?php echo $GenderError?></span><br><br>
 
                 <strong>Website:</strong><br>
                 <input class="input" type="text" Name="Website" value="" placeholder="Website URL..">
-                <span>* <?php echo $WebsiteError?></span><br><br>
+                <span>* <br><?php echo $WebsiteError?></span><br><br>
 
                 <strong>Comment:</strong><br>
                 <textarea Name="Comment" rows="5" cols="25" placeholder="Message.."></textarea>
                 <br>
                 <br>
-                <input class="button" type="Submit" Name="Submit" value="Submit Your Information">        
-            </fieldset>
-        
-       
-    
+                <input type="submit" Name="Submit" value="Submit Your Information">        
+            
+        </div>
+    </div>
+    </fieldset>
         
     </form>
 
