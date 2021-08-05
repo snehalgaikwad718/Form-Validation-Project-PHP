@@ -4,6 +4,7 @@ $NameError = "";
 $EmailError = "";
 $GenderError = "";
 $WebsiteError = "";
+$NoComment = "";
 
 if(isset($_POST["Submit"])) {
 
@@ -57,10 +58,23 @@ if(isset($_POST["Submit"])) {
                 echo "<strong>Website</strong>: {$_POST["Website"]} <br />";
                 
                 if(empty($_POST["Comment"])) {
-                    echo "<strong>Comment</strong>: No Comment. <br />";
+                    $NoComment = "<strong>Comment</strong>: No Comment. <br />";
                 } else {
                     echo "<strong>Comment</strong>: {$_POST["Comment"]} <br />";
                 }
+
+                $emailto="snehalgaikwad0201@gmail.com";
+                $subject="Contact Form";
+                $body="A person name ".ucwords($_POST["Name"])." with email ".$_POST["Email"]." have gender ".$_POST["Gender"]." have website ".$_POST["Website"].
+                " added comment ".$_POST["Comment"];
+                $sender="From: snehalgaikwad0201@gmail.com";
+
+                if(mail($emailto, $subject, $body, $sender)) {
+                    echo "<strong>Mail sent successfully!</strong>";
+                } else {
+                    echo "<strong>Mail not sent!</strong>";
+                }
+
                 echo '</div>';
             } else {
                 echo '<div class=info>';
