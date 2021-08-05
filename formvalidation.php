@@ -102,30 +102,35 @@ function Test_User_Input($Data) {
 
     <form  action="formvalidation.php" method="POST"> 
     <legend>* Please Fill Out the following Fields.</legend>	
-        <fieldset>
-            <strong>Name:</strong><br>
-            <input class="input" type="text" Name="Name" value="" placeholder="Your name..">
-            <span>* <?php echo $NameError?></span><br><br>	 
+    
+            <fieldset>
+                <strong>Name:</strong><br>
+                <input class="input" type="text" Name="Name" value="" placeholder="Your name..">
+                <span>* <?php echo $NameError?></span><br><br>	 
 
-            <strong>E-mail:</strong><br>
-            <input class="input" type="email" Name="Email" value="" placeholder="Your email...">
-            <span>* <?php echo $EmailError?></span><br><br>
+                <strong>E-mail:</strong><br>
+                <input class="input" type="email" Name="Email" value="" placeholder="Your email...">
+                <span>* <?php echo $EmailError?></span><br><br>
 
-            <strong>Gender:</strong><br>
-            <input class="radio" type="radio" Name="Gender" value="Female">Female
-            <input class="radio" type="radio" Name="Gender" value="Male">Male
-            <span>* <?php echo $GenderError?></span><br><br>
+                <strong>Gender:</strong><br>
+                <input class="radio" type="radio" Name="Gender" value="Female">Female
+                <input class="radio" type="radio" Name="Gender" value="Male">Male
+                <span>* <?php echo $GenderError?></span><br><br>
 
-            <strong>Website:</strong><br>
-            <input class="input" type="text" Name="Website" value="" placeholder="Website URL..">
-            <span>* <?php echo $WebsiteError?></span><br><br>
+                <strong>Website:</strong><br>
+                <input class="input" type="text" Name="Website" value="" placeholder="Website URL..">
+                <span>* <?php echo $WebsiteError?></span><br><br>
 
-            <strong>Comment:</strong><br>
-            <textarea Name="Comment" rows="5" cols="25" placeholder="Message.."></textarea>
-            <br>
-            <br>
-            <input class="button" type="Submit" Name="Submit" value="Submit Your Information">        
-        </fieldset>
+                <strong>Comment:</strong><br>
+                <textarea Name="Comment" rows="5" cols="25" placeholder="Message.."></textarea>
+                <br>
+                <br>
+                <input class="button" type="Submit" Name="Submit" value="Submit Your Information">        
+            </fieldset>
+        
+       
+    
+        
     </form>
 
 </body>
